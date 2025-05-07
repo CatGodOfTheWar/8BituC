@@ -49,7 +49,7 @@ This microcontroller is built using the following components:
 7. **Input/Output Interface**:
    - Allows interaction with external devices for data input and output.
 
-![IC_2 Diagram](./IC_2.png)
+![IC_2 Diagram](imgs/IC_2.png)
 
 These components work together to execute assembly instructions stored in RAM.
 
