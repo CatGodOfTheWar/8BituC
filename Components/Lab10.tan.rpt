@@ -1,0 +1,592 @@
+Classic Timing Analyzer report for Lab10
+Mon May 05 10:10:03 2025
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'CLK'
+  7. Clock Hold: 'CLK'
+  8. tsu
+  9. tco
+ 10. th
+ 11. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                     ;
++------------------------------+------------------------------------------+---------------+----------------------------------+------------------------------------+------------------------------------+------------+----------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                      ; From                               ; To                                 ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+----------------------------------+------------------------------------+------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 3.537 ns                         ; Reset                              ; DP:inst3|Register5bit:inst6|PC[0]  ; --         ; CLK      ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 12.385 ns                        ; DP:inst3|8bitRegister:inst13|inst2 ; Output[5]                          ; CLK        ; --       ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; 5.390 ns                         ; Input[4]                           ; DP:inst3|8bitRegister:inst13|inst3 ; --         ; CLK      ; 0            ;
+; Clock Setup: 'CLK'           ; N/A                                      ; None          ; 83.77 MHz ( period = 11.938 ns ) ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|Register5bit:inst6|PC[0]  ; CLK        ; CLK      ; 0            ;
+; Clock Hold: 'CLK'            ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; DP:inst3|SRAM8bitx32:inst|Q[5]     ; DP:inst3|8bitRegister:inst13|inst2 ; CLK        ; CLK      ; 65           ;
+; Total number of failed paths ;                                          ;               ;                                  ;                                    ;                                    ;            ;          ; 65           ;
++------------------------------+------------------------------------------+---------------+----------------------------------+------------------------------------+------------------------------------+------------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EPM1270T144C3      ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLK             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 10     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLK'                                                                                                                                                                                                                                                                  ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------+------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                               ; To                                 ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------+------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 83.77 MHz ( period = 11.938 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|Register5bit:inst6|PC[4]  ; CLK        ; CLK      ; None                        ; None                      ; 5.250 ns                ;
+; N/A                                     ; 83.77 MHz ( period = 11.938 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|Register5bit:inst6|PC[2]  ; CLK        ; CLK      ; None                        ; None                      ; 5.250 ns                ;
+; N/A                                     ; 83.77 MHz ( period = 11.938 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|Register5bit:inst6|PC[3]  ; CLK        ; CLK      ; None                        ; None                      ; 5.250 ns                ;
+; N/A                                     ; 83.77 MHz ( period = 11.938 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|Register5bit:inst6|PC[0]  ; CLK        ; CLK      ; None                        ; None                      ; 5.250 ns                ;
+; N/A                                     ; 84.59 MHz ( period = 11.822 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|Register5bit:inst6|PC[4]  ; CLK        ; CLK      ; None                        ; None                      ; 5.134 ns                ;
+; N/A                                     ; 84.59 MHz ( period = 11.822 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|Register5bit:inst6|PC[2]  ; CLK        ; CLK      ; None                        ; None                      ; 5.134 ns                ;
+; N/A                                     ; 84.59 MHz ( period = 11.822 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|Register5bit:inst6|PC[3]  ; CLK        ; CLK      ; None                        ; None                      ; 5.134 ns                ;
+; N/A                                     ; 84.59 MHz ( period = 11.822 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|Register5bit:inst6|PC[0]  ; CLK        ; CLK      ; None                        ; None                      ; 5.134 ns                ;
+; N/A                                     ; 85.58 MHz ( period = 11.685 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|Register5bit:inst6|PC[4]  ; CLK        ; CLK      ; None                        ; None                      ; 4.997 ns                ;
+; N/A                                     ; 85.58 MHz ( period = 11.685 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|Register5bit:inst6|PC[2]  ; CLK        ; CLK      ; None                        ; None                      ; 4.997 ns                ;
+; N/A                                     ; 85.58 MHz ( period = 11.685 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|Register5bit:inst6|PC[3]  ; CLK        ; CLK      ; None                        ; None                      ; 4.997 ns                ;
+; N/A                                     ; 85.58 MHz ( period = 11.685 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|Register5bit:inst6|PC[0]  ; CLK        ; CLK      ; None                        ; None                      ; 4.997 ns                ;
+; N/A                                     ; 85.74 MHz ( period = 11.663 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|Register5bit:inst6|PC[4]  ; CLK        ; CLK      ; None                        ; None                      ; 4.975 ns                ;
+; N/A                                     ; 85.74 MHz ( period = 11.663 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|Register5bit:inst6|PC[2]  ; CLK        ; CLK      ; None                        ; None                      ; 4.975 ns                ;
+; N/A                                     ; 85.74 MHz ( period = 11.663 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|Register5bit:inst6|PC[3]  ; CLK        ; CLK      ; None                        ; None                      ; 4.975 ns                ;
+; N/A                                     ; 85.74 MHz ( period = 11.663 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|Register5bit:inst6|PC[0]  ; CLK        ; CLK      ; None                        ; None                      ; 4.975 ns                ;
+; N/A                                     ; 86.71 MHz ( period = 11.533 ns )                    ; DP:inst3|8bitRegister:inst13|inst5 ; DP:inst3|Register5bit:inst6|PC[4]  ; CLK        ; CLK      ; None                        ; None                      ; 4.845 ns                ;
+; N/A                                     ; 86.71 MHz ( period = 11.533 ns )                    ; DP:inst3|8bitRegister:inst13|inst5 ; DP:inst3|Register5bit:inst6|PC[2]  ; CLK        ; CLK      ; None                        ; None                      ; 4.845 ns                ;
+; N/A                                     ; 86.71 MHz ( period = 11.533 ns )                    ; DP:inst3|8bitRegister:inst13|inst5 ; DP:inst3|Register5bit:inst6|PC[3]  ; CLK        ; CLK      ; None                        ; None                      ; 4.845 ns                ;
+; N/A                                     ; 86.71 MHz ( period = 11.533 ns )                    ; DP:inst3|8bitRegister:inst13|inst5 ; DP:inst3|Register5bit:inst6|PC[0]  ; CLK        ; CLK      ; None                        ; None                      ; 4.845 ns                ;
+; N/A                                     ; 86.78 MHz ( period = 11.523 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|Register5bit:inst6|PC[1]  ; CLK        ; CLK      ; None                        ; None                      ; 4.835 ns                ;
+; N/A                                     ; 86.94 MHz ( period = 11.502 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|Register5bit:inst6|PC[4]  ; CLK        ; CLK      ; None                        ; None                      ; 4.814 ns                ;
+; N/A                                     ; 86.94 MHz ( period = 11.502 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|Register5bit:inst6|PC[2]  ; CLK        ; CLK      ; None                        ; None                      ; 4.814 ns                ;
+; N/A                                     ; 86.94 MHz ( period = 11.502 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|Register5bit:inst6|PC[3]  ; CLK        ; CLK      ; None                        ; None                      ; 4.814 ns                ;
+; N/A                                     ; 86.94 MHz ( period = 11.502 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|Register5bit:inst6|PC[0]  ; CLK        ; CLK      ; None                        ; None                      ; 4.814 ns                ;
+; N/A                                     ; 87.67 MHz ( period = 11.407 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|Register5bit:inst6|PC[1]  ; CLK        ; CLK      ; None                        ; None                      ; 4.719 ns                ;
+; N/A                                     ; 88.09 MHz ( period = 11.352 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|Register5bit:inst6|PC[4]  ; CLK        ; CLK      ; None                        ; None                      ; 4.664 ns                ;
+; N/A                                     ; 88.09 MHz ( period = 11.352 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|Register5bit:inst6|PC[2]  ; CLK        ; CLK      ; None                        ; None                      ; 4.664 ns                ;
+; N/A                                     ; 88.09 MHz ( period = 11.352 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|Register5bit:inst6|PC[3]  ; CLK        ; CLK      ; None                        ; None                      ; 4.664 ns                ;
+; N/A                                     ; 88.09 MHz ( period = 11.352 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|Register5bit:inst6|PC[0]  ; CLK        ; CLK      ; None                        ; None                      ; 4.664 ns                ;
+; N/A                                     ; 88.29 MHz ( period = 11.326 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|Register5bit:inst6|PC[4]  ; CLK        ; CLK      ; None                        ; None                      ; 4.638 ns                ;
+; N/A                                     ; 88.29 MHz ( period = 11.326 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|Register5bit:inst6|PC[2]  ; CLK        ; CLK      ; None                        ; None                      ; 4.638 ns                ;
+; N/A                                     ; 88.29 MHz ( period = 11.326 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|Register5bit:inst6|PC[3]  ; CLK        ; CLK      ; None                        ; None                      ; 4.638 ns                ;
+; N/A                                     ; 88.29 MHz ( period = 11.326 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|Register5bit:inst6|PC[0]  ; CLK        ; CLK      ; None                        ; None                      ; 4.638 ns                ;
+; N/A                                     ; 88.73 MHz ( period = 11.270 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|Register5bit:inst6|PC[1]  ; CLK        ; CLK      ; None                        ; None                      ; 4.582 ns                ;
+; N/A                                     ; 88.90 MHz ( period = 11.248 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|Register5bit:inst6|PC[1]  ; CLK        ; CLK      ; None                        ; None                      ; 4.560 ns                ;
+; N/A                                     ; 89.94 MHz ( period = 11.118 ns )                    ; DP:inst3|8bitRegister:inst13|inst5 ; DP:inst3|Register5bit:inst6|PC[1]  ; CLK        ; CLK      ; None                        ; None                      ; 4.430 ns                ;
+; N/A                                     ; 90.20 MHz ( period = 11.087 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|Register5bit:inst6|PC[1]  ; CLK        ; CLK      ; None                        ; None                      ; 4.399 ns                ;
+; N/A                                     ; 91.43 MHz ( period = 10.937 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|Register5bit:inst6|PC[1]  ; CLK        ; CLK      ; None                        ; None                      ; 4.249 ns                ;
+; N/A                                     ; 91.65 MHz ( period = 10.911 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|Register5bit:inst6|PC[1]  ; CLK        ; CLK      ; None                        ; None                      ; 4.223 ns                ;
+; N/A                                     ; 94.28 MHz ( period = 10.607 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|Q[5]     ; CLK        ; CLK      ; None                        ; None                      ; 10.164 ns               ;
+; N/A                                     ; 94.99 MHz ( period = 10.527 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; CLK        ; CLK      ; None                        ; None                      ; 10.084 ns               ;
+; N/A                                     ; 95.99 MHz ( period = 10.418 ns )                    ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|SRAM8bitx32:inst|Q[5]     ; CLK        ; CLK      ; None                        ; None                      ; 9.975 ns                ;
+; N/A                                     ; 96.27 MHz ( period = 10.387 ns )                    ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|SRAM8bitx32:inst|Q[5]     ; CLK        ; CLK      ; None                        ; None                      ; 9.944 ns                ;
+; N/A                                     ; 96.73 MHz ( period = 10.338 ns )                    ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; CLK        ; CLK      ; None                        ; None                      ; 9.895 ns                ;
+; N/A                                     ; 96.74 MHz ( period = 10.337 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; CLK        ; CLK      ; None                        ; None                      ; 9.894 ns                ;
+; N/A                                     ; 97.02 MHz ( period = 10.307 ns )                    ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; CLK        ; CLK      ; None                        ; None                      ; 9.864 ns                ;
+; N/A                                     ; 97.08 MHz ( period = 10.301 ns )                    ; DP:inst3|Register5bit:inst6|PC[2]  ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; CLK        ; CLK      ; None                        ; None                      ; 9.858 ns                ;
+; N/A                                     ; 97.30 MHz ( period = 10.277 ns )                    ; DP:inst3|Register5bit:inst6|PC[1]  ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; CLK        ; CLK      ; None                        ; None                      ; 9.834 ns                ;
+; N/A                                     ; 97.67 MHz ( period = 10.239 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|8bitRegister:inst13|inst1 ; CLK        ; CLK      ; None                        ; None                      ; 7.925 ns                ;
+; N/A                                     ; 98.44 MHz ( period = 10.158 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|8bitRegister:inst13|inst1 ; CLK        ; CLK      ; None                        ; None                      ; 7.844 ns                ;
+; N/A                                     ; 98.53 MHz ( period = 10.149 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|Q[6]     ; CLK        ; CLK      ; None                        ; None                      ; 9.706 ns                ;
+; N/A                                     ; 98.54 MHz ( period = 10.148 ns )                    ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; CLK        ; CLK      ; None                        ; None                      ; 9.705 ns                ;
+; N/A                                     ; 98.84 MHz ( period = 10.117 ns )                    ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; CLK        ; CLK      ; None                        ; None                      ; 9.674 ns                ;
+; N/A                                     ; 98.86 MHz ( period = 10.115 ns )                    ; DP:inst3|RegisterIR:inst2|IR2[0]   ; DP:inst3|SRAM8bitx32:inst|Q[5]     ; CLK        ; CLK      ; None                        ; None                      ; 9.672 ns                ;
+; N/A                                     ; 98.89 MHz ( period = 10.112 ns )                    ; DP:inst3|Register5bit:inst6|PC[0]  ; DP:inst3|SRAM8bitx32:inst|Q[5]     ; CLK        ; CLK      ; None                        ; None                      ; 9.669 ns                ;
+; N/A                                     ; 99.51 MHz ( period = 10.049 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~53   ; CLK        ; CLK      ; None                        ; None                      ; 3.361 ns                ;
+; N/A                                     ; 99.65 MHz ( period = 10.035 ns )                    ; DP:inst3|RegisterIR:inst2|IR2[0]   ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; CLK        ; CLK      ; None                        ; None                      ; 9.592 ns                ;
+; N/A                                     ; 99.68 MHz ( period = 10.032 ns )                    ; DP:inst3|Register5bit:inst6|PC[0]  ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; CLK        ; CLK      ; None                        ; None                      ; 9.589 ns                ;
+; N/A                                     ; 99.81 MHz ( period = 10.019 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~245  ; CLK        ; CLK      ; None                        ; None                      ; 3.331 ns                ;
+; N/A                                     ; 100.03 MHz ( period = 9.997 ns )                    ; DP:inst3|Register5bit:inst6|PC[2]  ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; CLK        ; CLK      ; None                        ; None                      ; 9.554 ns                ;
+; N/A                                     ; 100.07 MHz ( period = 9.993 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~59   ; CLK        ; CLK      ; None                        ; None                      ; 3.305 ns                ;
+; N/A                                     ; 100.21 MHz ( period = 9.979 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~116  ; CLK        ; CLK      ; None                        ; None                      ; 3.291 ns                ;
+; N/A                                     ; 100.22 MHz ( period = 9.978 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~108  ; CLK        ; CLK      ; None                        ; None                      ; 3.290 ns                ;
+; N/A                                     ; 100.23 MHz ( period = 9.977 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|SRAM8bitx32:inst|mem~167  ; CLK        ; CLK      ; None                        ; None                      ; 3.289 ns                ;
+; N/A                                     ; 100.32 MHz ( period = 9.968 ns )                    ; DP:inst3|Register5bit:inst6|PC[1]  ; DP:inst3|SRAM8bitx32:inst|Q[6]     ; CLK        ; CLK      ; None                        ; None                      ; 9.525 ns                ;
+; N/A                                     ; 100.40 MHz ( period = 9.960 ns )                    ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|SRAM8bitx32:inst|Q[6]     ; CLK        ; CLK      ; None                        ; None                      ; 9.517 ns                ;
+; N/A                                     ; 100.60 MHz ( period = 9.940 ns )                    ; DP:inst3|Register5bit:inst6|PC[1]  ; DP:inst3|SRAM8bitx32:inst|Q[5]     ; CLK        ; CLK      ; None                        ; None                      ; 9.497 ns                ;
+; N/A                                     ; 100.72 MHz ( period = 9.929 ns )                    ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|SRAM8bitx32:inst|Q[6]     ; CLK        ; CLK      ; None                        ; None                      ; 9.486 ns                ;
+; N/A                                     ; 100.74 MHz ( period = 9.927 ns )                    ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|SRAM8bitx32:inst|Q[5]     ; CLK        ; CLK      ; None                        ; None                      ; 9.484 ns                ;
+; N/A                                     ; 100.87 MHz ( period = 9.914 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; CLK        ; CLK      ; None                        ; None                      ; 9.471 ns                ;
+; N/A                                     ; 101.00 MHz ( period = 9.901 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~97   ; CLK        ; CLK      ; None                        ; None                      ; 3.213 ns                ;
+; N/A                                     ; 101.03 MHz ( period = 9.898 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~137  ; CLK        ; CLK      ; None                        ; None                      ; 3.210 ns                ;
+; N/A                                     ; 101.03 MHz ( period = 9.898 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~129  ; CLK        ; CLK      ; None                        ; None                      ; 3.210 ns                ;
+; N/A                                     ; 101.22 MHz ( period = 9.879 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~57   ; CLK        ; CLK      ; None                        ; None                      ; 3.191 ns                ;
+; N/A                                     ; 101.24 MHz ( period = 9.878 ns )                    ; DP:inst3|Register5bit:inst6|PC[2]  ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; CLK        ; CLK      ; None                        ; None                      ; 9.435 ns                ;
+; N/A                                     ; 101.46 MHz ( period = 9.856 ns )                    ; DP:inst3|Register5bit:inst6|PC[1]  ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; CLK        ; CLK      ; None                        ; None                      ; 9.413 ns                ;
+; N/A                                     ; 101.55 MHz ( period = 9.847 ns )                    ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; CLK        ; CLK      ; None                        ; None                      ; 9.404 ns                ;
+; N/A                                     ; 101.66 MHz ( period = 9.837 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~109  ; CLK        ; CLK      ; None                        ; None                      ; 3.149 ns                ;
+; N/A                                     ; 101.87 MHz ( period = 9.816 ns )                    ; DP:inst3|Register5bit:inst6|PC[2]  ; DP:inst3|SRAM8bitx32:inst|Q[6]     ; CLK        ; CLK      ; None                        ; None                      ; 9.373 ns                ;
+; N/A                                     ; 102.01 MHz ( period = 9.803 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|Q[3]     ; CLK        ; CLK      ; None                        ; None                      ; 9.360 ns                ;
+; N/A                                     ; 102.32 MHz ( period = 9.773 ns )                    ; DP:inst3|Register5bit:inst6|PC[3]  ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; CLK        ; CLK      ; None                        ; None                      ; 9.330 ns                ;
+; N/A                                     ; 102.66 MHz ( period = 9.741 ns )                    ; DP:inst3|RegisterIR:inst2|IR2[3]   ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; CLK        ; CLK      ; None                        ; None                      ; 9.298 ns                ;
+; N/A                                     ; 102.67 MHz ( period = 9.740 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|Q[7]     ; CLK        ; CLK      ; None                        ; None                      ; 9.297 ns                ;
+; N/A                                     ; 102.83 MHz ( period = 9.725 ns )                    ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; CLK        ; CLK      ; None                        ; None                      ; 9.282 ns                ;
+; N/A                                     ; 102.86 MHz ( period = 9.722 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~132  ; CLK        ; CLK      ; None                        ; None                      ; 3.034 ns                ;
+; N/A                                     ; 103.03 MHz ( period = 9.706 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~249  ; CLK        ; CLK      ; None                        ; None                      ; 3.018 ns                ;
+; N/A                                     ; 103.06 MHz ( period = 9.703 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~13   ; CLK        ; CLK      ; None                        ; None                      ; 3.015 ns                ;
+; N/A                                     ; 103.16 MHz ( period = 9.694 ns )                    ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; CLK        ; CLK      ; None                        ; None                      ; 9.251 ns                ;
+; N/A                                     ; 103.35 MHz ( period = 9.676 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~45   ; CLK        ; CLK      ; None                        ; None                      ; 2.988 ns                ;
+; N/A                                     ; 103.36 MHz ( period = 9.675 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~61   ; CLK        ; CLK      ; None                        ; None                      ; 2.987 ns                ;
+; N/A                                     ; 103.38 MHz ( period = 9.673 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                        ; None                      ; 7.359 ns                ;
+; N/A                                     ; 103.40 MHz ( period = 9.671 ns )                    ; DP:inst3|Register5bit:inst6|PC[1]  ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; CLK        ; CLK      ; None                        ; None                      ; 9.228 ns                ;
+; N/A                                     ; 103.52 MHz ( period = 9.660 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|SRAM8bitx32:inst|mem~231  ; CLK        ; CLK      ; None                        ; None                      ; 2.972 ns                ;
+; N/A                                     ; 103.55 MHz ( period = 9.657 ns )                    ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; CLK        ; CLK      ; None                        ; None                      ; 9.214 ns                ;
+; N/A                                     ; 103.58 MHz ( period = 9.654 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|SRAM8bitx32:inst|mem~151  ; CLK        ; CLK      ; None                        ; None                      ; 2.966 ns                ;
+; N/A                                     ; 103.63 MHz ( period = 9.650 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|SRAM8bitx32:inst|mem~71   ; CLK        ; CLK      ; None                        ; None                      ; 2.962 ns                ;
+; N/A                                     ; 103.69 MHz ( period = 9.644 ns )                    ; DP:inst3|RegisterIR:inst2|IR2[0]   ; DP:inst3|SRAM8bitx32:inst|Q[6]     ; CLK        ; CLK      ; None                        ; None                      ; 9.201 ns                ;
+; N/A                                     ; 103.70 MHz ( period = 9.643 ns )                    ; DP:inst3|RegisterIR:inst2|IR2[1]   ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; CLK        ; CLK      ; None                        ; None                      ; 9.200 ns                ;
+; N/A                                     ; 103.72 MHz ( period = 9.641 ns )                    ; DP:inst3|Register5bit:inst6|PC[0]  ; DP:inst3|SRAM8bitx32:inst|Q[6]     ; CLK        ; CLK      ; None                        ; None                      ; 9.198 ns                ;
+; N/A                                     ; 103.81 MHz ( period = 9.633 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|Q[1]     ; CLK        ; CLK      ; None                        ; None                      ; 9.190 ns                ;
+; N/A                                     ; 103.89 MHz ( period = 9.626 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|SRAM8bitx32:inst|mem~127  ; CLK        ; CLK      ; None                        ; None                      ; 2.938 ns                ;
+; N/A                                     ; 103.91 MHz ( period = 9.624 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~153  ; CLK        ; CLK      ; None                        ; None                      ; 2.936 ns                ;
+; N/A                                     ; 103.99 MHz ( period = 9.616 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~252  ; CLK        ; CLK      ; None                        ; None                      ; 2.928 ns                ;
+; N/A                                     ; 104.01 MHz ( period = 9.614 ns )                    ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|SRAM8bitx32:inst|Q[3]     ; CLK        ; CLK      ; None                        ; None                      ; 9.171 ns                ;
+; N/A                                     ; 104.03 MHz ( period = 9.613 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~140  ; CLK        ; CLK      ; None                        ; None                      ; 2.925 ns                ;
+; N/A                                     ; 104.06 MHz ( period = 9.610 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~173  ; CLK        ; CLK      ; None                        ; None                      ; 2.922 ns                ;
+; N/A                                     ; 104.06 MHz ( period = 9.610 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~205  ; CLK        ; CLK      ; None                        ; None                      ; 2.922 ns                ;
+; N/A                                     ; 104.09 MHz ( period = 9.607 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~77   ; CLK        ; CLK      ; None                        ; None                      ; 2.919 ns                ;
+; N/A                                     ; 104.25 MHz ( period = 9.592 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                        ; None                      ; 7.278 ns                ;
+; N/A                                     ; 104.25 MHz ( period = 9.592 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~131  ; CLK        ; CLK      ; None                        ; None                      ; 2.904 ns                ;
+; N/A                                     ; 104.29 MHz ( period = 9.589 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~139  ; CLK        ; CLK      ; None                        ; None                      ; 2.901 ns                ;
+; N/A                                     ; 104.35 MHz ( period = 9.583 ns )                    ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|SRAM8bitx32:inst|Q[3]     ; CLK        ; CLK      ; None                        ; None                      ; 9.140 ns                ;
+; N/A                                     ; 104.42 MHz ( period = 9.577 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~156  ; CLK        ; CLK      ; None                        ; None                      ; 2.889 ns                ;
+; N/A                                     ; 104.50 MHz ( period = 9.569 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|SRAM8bitx32:inst|mem~55   ; CLK        ; CLK      ; None                        ; None                      ; 2.881 ns                ;
+; N/A                                     ; 104.59 MHz ( period = 9.561 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~221  ; CLK        ; CLK      ; None                        ; None                      ; 2.873 ns                ;
+; N/A                                     ; 104.60 MHz ( period = 9.560 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~189  ; CLK        ; CLK      ; None                        ; None                      ; 2.872 ns                ;
+; N/A                                     ; 104.61 MHz ( period = 9.559 ns )                    ; DP:inst3|Register5bit:inst6|PC[1]  ; DP:inst3|SRAM8bitx32:inst|Q[7]     ; CLK        ; CLK      ; None                        ; None                      ; 9.116 ns                ;
+; N/A                                     ; 104.70 MHz ( period = 9.551 ns )                    ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|SRAM8bitx32:inst|Q[7]     ; CLK        ; CLK      ; None                        ; None                      ; 9.108 ns                ;
+; N/A                                     ; 104.71 MHz ( period = 9.550 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~115  ; CLK        ; CLK      ; None                        ; None                      ; 2.862 ns                ;
+; N/A                                     ; 104.73 MHz ( period = 9.548 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~125  ; CLK        ; CLK      ; None                        ; None                      ; 2.860 ns                ;
+; N/A                                     ; 104.73 MHz ( period = 9.548 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~107  ; CLK        ; CLK      ; None                        ; None                      ; 2.860 ns                ;
+; N/A                                     ; 104.74 MHz ( period = 9.547 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~149  ; CLK        ; CLK      ; None                        ; None                      ; 2.859 ns                ;
+; N/A                                     ; 104.80 MHz ( period = 9.542 ns )                    ; DP:inst3|Register5bit:inst6|PC[3]  ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; CLK        ; CLK      ; None                        ; None                      ; 9.099 ns                ;
+; N/A                                     ; 104.87 MHz ( period = 9.536 ns )                    ; DP:inst3|RegisterIR:inst2|IR2[0]   ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; CLK        ; CLK      ; None                        ; None                      ; 9.093 ns                ;
+; N/A                                     ; 104.90 MHz ( period = 9.533 ns )                    ; DP:inst3|Register5bit:inst6|PC[0]  ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; CLK        ; CLK      ; None                        ; None                      ; 9.090 ns                ;
+; N/A                                     ; 105.04 MHz ( period = 9.520 ns )                    ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|SRAM8bitx32:inst|Q[7]     ; CLK        ; CLK      ; None                        ; None                      ; 9.077 ns                ;
+; N/A                                     ; 105.09 MHz ( period = 9.516 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~123  ; CLK        ; CLK      ; None                        ; None                      ; 2.828 ns                ;
+; N/A                                     ; 105.10 MHz ( period = 9.515 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~237  ; CLK        ; CLK      ; None                        ; None                      ; 2.827 ns                ;
+; N/A                                     ; 105.14 MHz ( period = 9.511 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~117  ; CLK        ; CLK      ; None                        ; None                      ; 2.823 ns                ;
+; N/A                                     ; 105.15 MHz ( period = 9.510 ns )                    ; DP:inst3|RegisterIR:inst2|IR2[3]   ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; CLK        ; CLK      ; None                        ; None                      ; 9.067 ns                ;
+; N/A                                     ; 105.17 MHz ( period = 9.508 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~243  ; CLK        ; CLK      ; None                        ; None                      ; 2.820 ns                ;
+; N/A                                     ; 105.19 MHz ( period = 9.507 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~227  ; CLK        ; CLK      ; None                        ; None                      ; 2.819 ns                ;
+; N/A                                     ; 105.19 MHz ( period = 9.507 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~99   ; CLK        ; CLK      ; None                        ; None                      ; 2.819 ns                ;
+; N/A                                     ; 105.47 MHz ( period = 9.481 ns )                    ; DP:inst3|RegisterIR:inst2|IR2[2]   ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; CLK        ; CLK      ; None                        ; None                      ; 9.038 ns                ;
+; N/A                                     ; 105.59 MHz ( period = 9.471 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|SRAM8bitx32:inst|mem~86   ; CLK        ; CLK      ; None                        ; None                      ; 2.783 ns                ;
+; N/A                                     ; 105.59 MHz ( period = 9.471 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|SRAM8bitx32:inst|mem~78   ; CLK        ; CLK      ; None                        ; None                      ; 2.783 ns                ;
+; N/A                                     ; 105.61 MHz ( period = 9.469 ns )                    ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|SRAM8bitx32:inst|Q[6]     ; CLK        ; CLK      ; None                        ; None                      ; 9.026 ns                ;
+; N/A                                     ; 105.73 MHz ( period = 9.458 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~147  ; CLK        ; CLK      ; None                        ; None                      ; 2.770 ns                ;
+; N/A                                     ; 105.76 MHz ( period = 9.455 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|SRAM8bitx32:inst|mem~198  ; CLK        ; CLK      ; None                        ; None                      ; 2.767 ns                ;
+; N/A                                     ; 105.81 MHz ( period = 9.451 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~67   ; CLK        ; CLK      ; None                        ; None                      ; 2.763 ns                ;
+; N/A                                     ; 105.89 MHz ( period = 9.444 ns )                    ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|SRAM8bitx32:inst|Q[1]     ; CLK        ; CLK      ; None                        ; None                      ; 9.001 ns                ;
+; N/A                                     ; 105.90 MHz ( period = 9.443 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~187  ; CLK        ; CLK      ; None                        ; None                      ; 2.755 ns                ;
+; N/A                                     ; 105.93 MHz ( period = 9.440 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|SRAM8bitx32:inst|mem~94   ; CLK        ; CLK      ; None                        ; None                      ; 2.752 ns                ;
+; N/A                                     ; 105.94 MHz ( period = 9.439 ns )                    ; DP:inst3|Register5bit:inst6|PC[2]  ; DP:inst3|SRAM8bitx32:inst|Q[3]     ; CLK        ; CLK      ; None                        ; None                      ; 8.996 ns                ;
+; N/A                                     ; 105.98 MHz ( period = 9.436 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~219  ; CLK        ; CLK      ; None                        ; None                      ; 2.748 ns                ;
+; N/A                                     ; 106.01 MHz ( period = 9.433 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~180  ; CLK        ; CLK      ; None                        ; None                      ; 2.745 ns                ;
+; N/A                                     ; 106.01 MHz ( period = 9.433 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~212  ; CLK        ; CLK      ; None                        ; None                      ; 2.745 ns                ;
+; N/A                                     ; 106.03 MHz ( period = 9.431 ns )                    ; DP:inst3|Register5bit:inst6|PC[1]  ; DP:inst3|SRAM8bitx32:inst|Q[1]     ; CLK        ; CLK      ; None                        ; None                      ; 8.988 ns                ;
+; N/A                                     ; 106.06 MHz ( period = 9.429 ns )                    ; DP:inst3|8bitRegister:inst13|inst5 ; DP:inst3|SRAM8bitx32:inst|mem~50   ; CLK        ; CLK      ; None                        ; None                      ; 2.741 ns                ;
+; N/A                                     ; 106.07 MHz ( period = 9.428 ns )                    ; DP:inst3|8bitRegister:inst13|inst5 ; DP:inst3|SRAM8bitx32:inst|mem~42   ; CLK        ; CLK      ; None                        ; None                      ; 2.740 ns                ;
+; N/A                                     ; 106.09 MHz ( period = 9.426 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~211  ; CLK        ; CLK      ; None                        ; None                      ; 2.738 ns                ;
+; N/A                                     ; 106.11 MHz ( period = 9.424 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~179  ; CLK        ; CLK      ; None                        ; None                      ; 2.736 ns                ;
+; N/A                                     ; 106.13 MHz ( period = 9.422 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~251  ; CLK        ; CLK      ; None                        ; None                      ; 2.734 ns                ;
+; N/A                                     ; 106.16 MHz ( period = 9.420 ns )                    ; DP:inst3|8bitRegister:inst13|inst5 ; DP:inst3|SRAM8bitx32:inst|mem~122  ; CLK        ; CLK      ; None                        ; None                      ; 2.732 ns                ;
+; N/A                                     ; 106.24 MHz ( period = 9.413 ns )                    ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|SRAM8bitx32:inst|Q[1]     ; CLK        ; CLK      ; None                        ; None                      ; 8.970 ns                ;
+; N/A                                     ; 106.27 MHz ( period = 9.410 ns )                    ; DP:inst3|8bitRegister:inst13|inst5 ; DP:inst3|SRAM8bitx32:inst|mem~146  ; CLK        ; CLK      ; None                        ; None                      ; 2.722 ns                ;
+; N/A                                     ; 106.28 MHz ( period = 9.409 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~100  ; CLK        ; CLK      ; None                        ; None                      ; 2.721 ns                ;
+; N/A                                     ; 106.30 MHz ( period = 9.407 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~41   ; CLK        ; CLK      ; None                        ; None                      ; 2.719 ns                ;
+; N/A                                     ; 106.30 MHz ( period = 9.407 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~49   ; CLK        ; CLK      ; None                        ; None                      ; 2.719 ns                ;
+; N/A                                     ; 106.30 MHz ( period = 9.407 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~105  ; CLK        ; CLK      ; None                        ; None                      ; 2.719 ns                ;
+; N/A                                     ; 106.32 MHz ( period = 9.406 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|SRAM8bitx32:inst|mem~238  ; CLK        ; CLK      ; None                        ; None                      ; 2.718 ns                ;
+; N/A                                     ; 106.35 MHz ( period = 9.403 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~113  ; CLK        ; CLK      ; None                        ; None                      ; 2.715 ns                ;
+; N/A                                     ; 106.46 MHz ( period = 9.393 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~244  ; CLK        ; CLK      ; None                        ; None                      ; 2.705 ns                ;
+; N/A                                     ; 106.50 MHz ( period = 9.390 ns )                    ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|SRAM8bitx32:inst|mem~155  ; CLK        ; CLK      ; None                        ; None                      ; 2.702 ns                ;
+; N/A                                     ; 106.56 MHz ( period = 9.384 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~253  ; CLK        ; CLK      ; None                        ; None                      ; 2.696 ns                ;
+; N/A                                     ; 106.62 MHz ( period = 9.379 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~37   ; CLK        ; CLK      ; None                        ; None                      ; 2.691 ns                ;
+; N/A                                     ; 106.62 MHz ( period = 9.379 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~52   ; CLK        ; CLK      ; None                        ; None                      ; 2.691 ns                ;
+; N/A                                     ; 106.67 MHz ( period = 9.375 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~141  ; CLK        ; CLK      ; None                        ; None                      ; 2.687 ns                ;
+; N/A                                     ; 106.67 MHz ( period = 9.375 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~44   ; CLK        ; CLK      ; None                        ; None                      ; 2.687 ns                ;
+; N/A                                     ; 106.70 MHz ( period = 9.372 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|mem~102  ; CLK        ; CLK      ; None                        ; None                      ; 8.929 ns                ;
+; N/A                                     ; 106.70 MHz ( period = 9.372 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|mem~100  ; CLK        ; CLK      ; None                        ; None                      ; 8.929 ns                ;
+; N/A                                     ; 106.70 MHz ( period = 9.372 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|mem~99   ; CLK        ; CLK      ; None                        ; None                      ; 8.929 ns                ;
+; N/A                                     ; 106.70 MHz ( period = 9.372 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|mem~98   ; CLK        ; CLK      ; None                        ; None                      ; 8.929 ns                ;
+; N/A                                     ; 106.70 MHz ( period = 9.372 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|mem~96   ; CLK        ; CLK      ; None                        ; None                      ; 8.929 ns                ;
+; N/A                                     ; 106.70 MHz ( period = 9.372 ns )                    ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|SRAM8bitx32:inst|mem~97   ; CLK        ; CLK      ; None                        ; None                      ; 8.929 ns                ;
+; N/A                                     ; 106.71 MHz ( period = 9.371 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|SRAM8bitx32:inst|mem~64   ; CLK        ; CLK      ; None                        ; None                      ; 2.683 ns                ;
+; N/A                                     ; 106.75 MHz ( period = 9.368 ns )                    ; DP:inst3|8bitRegister:inst13|inst2 ; DP:inst3|SRAM8bitx32:inst|mem~69   ; CLK        ; CLK      ; None                        ; None                      ; 2.680 ns                ;
+; N/A                                     ; 106.75 MHz ( period = 9.368 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|SRAM8bitx32:inst|mem~120  ; CLK        ; CLK      ; None                        ; None                      ; 2.680 ns                ;
+; N/A                                     ; 106.77 MHz ( period = 9.366 ns )                    ; DP:inst3|8bitRegister:inst13|inst  ; DP:inst3|SRAM8bitx32:inst|mem~7    ; CLK        ; CLK      ; None                        ; None                      ; 2.678 ns                ;
+; N/A                                     ; 106.78 MHz ( period = 9.365 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~145  ; CLK        ; CLK      ; None                        ; None                      ; 2.677 ns                ;
+; N/A                                     ; 106.79 MHz ( period = 9.364 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~1    ; CLK        ; CLK      ; None                        ; None                      ; 2.676 ns                ;
+; N/A                                     ; 106.88 MHz ( period = 9.356 ns )                    ; DP:inst3|Register5bit:inst6|PC[1]  ; DP:inst3|SRAM8bitx32:inst|Q[3]     ; CLK        ; CLK      ; None                        ; None                      ; 8.913 ns                ;
+; N/A                                     ; 106.88 MHz ( period = 9.356 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|SRAM8bitx32:inst|mem~240  ; CLK        ; CLK      ; None                        ; None                      ; 2.668 ns                ;
+; N/A                                     ; 107.07 MHz ( period = 9.340 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|SRAM8bitx32:inst|mem~54   ; CLK        ; CLK      ; None                        ; None                      ; 2.652 ns                ;
+; N/A                                     ; 107.11 MHz ( period = 9.336 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|SRAM8bitx32:inst|mem~46   ; CLK        ; CLK      ; None                        ; None                      ; 2.648 ns                ;
+; N/A                                     ; 107.11 MHz ( period = 9.336 ns )                    ; DP:inst3|Register5bit:inst6|PC[2]  ; DP:inst3|SRAM8bitx32:inst|mem~102  ; CLK        ; CLK      ; None                        ; None                      ; 8.893 ns                ;
+; N/A                                     ; 107.11 MHz ( period = 9.336 ns )                    ; DP:inst3|Register5bit:inst6|PC[2]  ; DP:inst3|SRAM8bitx32:inst|mem~100  ; CLK        ; CLK      ; None                        ; None                      ; 8.893 ns                ;
+; N/A                                     ; 107.11 MHz ( period = 9.336 ns )                    ; DP:inst3|Register5bit:inst6|PC[2]  ; DP:inst3|SRAM8bitx32:inst|mem~99   ; CLK        ; CLK      ; None                        ; None                      ; 8.893 ns                ;
+; N/A                                     ; 107.11 MHz ( period = 9.336 ns )                    ; DP:inst3|Register5bit:inst6|PC[2]  ; DP:inst3|SRAM8bitx32:inst|mem~98   ; CLK        ; CLK      ; None                        ; None                      ; 8.893 ns                ;
+; N/A                                     ; 107.11 MHz ( period = 9.336 ns )                    ; DP:inst3|Register5bit:inst6|PC[2]  ; DP:inst3|SRAM8bitx32:inst|mem~96   ; CLK        ; CLK      ; None                        ; None                      ; 8.893 ns                ;
+; N/A                                     ; 107.11 MHz ( period = 9.336 ns )                    ; DP:inst3|Register5bit:inst6|PC[2]  ; DP:inst3|SRAM8bitx32:inst|mem~97   ; CLK        ; CLK      ; None                        ; None                      ; 8.893 ns                ;
+; N/A                                     ; 107.14 MHz ( period = 9.334 ns )                    ; DP:inst3|RegisterIR:inst2|IR2[1]   ; DP:inst3|SRAM8bitx32:inst|Q[6]     ; CLK        ; CLK      ; None                        ; None                      ; 8.891 ns                ;
+; N/A                                     ; 107.14 MHz ( period = 9.334 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|SRAM8bitx32:inst|mem~144  ; CLK        ; CLK      ; None                        ; None                      ; 2.646 ns                ;
+; N/A                                     ; 107.19 MHz ( period = 9.329 ns )                    ; DP:inst3|8bitRegister:inst13|inst5 ; DP:inst3|SRAM8bitx32:inst|mem~10   ; CLK        ; CLK      ; None                        ; None                      ; 2.641 ns                ;
+; N/A                                     ; 107.20 MHz ( period = 9.328 ns )                    ; DP:inst3|8bitRegister:inst13|inst7 ; DP:inst3|SRAM8bitx32:inst|mem~96   ; CLK        ; CLK      ; None                        ; None                      ; 2.640 ns                ;
+; N/A                                     ; 107.20 MHz ( period = 9.328 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~121  ; CLK        ; CLK      ; None                        ; None                      ; 2.640 ns                ;
+; N/A                                     ; 107.23 MHz ( period = 9.326 ns )                    ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|SRAM8bitx32:inst|mem~12   ; CLK        ; CLK      ; None                        ; None                      ; 2.638 ns                ;
+; N/A                                     ; 107.24 MHz ( period = 9.325 ns )                    ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|SRAM8bitx32:inst|mem~174  ; CLK        ; CLK      ; None                        ; None                      ; 2.637 ns                ;
+; N/A                                     ; 107.25 MHz ( period = 9.324 ns )                    ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|SRAM8bitx32:inst|mem~241  ; CLK        ; CLK      ; None                        ; None                      ; 2.636 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                    ;                                    ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+------------------------------------+------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'CLK'                                                                                                                                                                                                               ;
++------------------------------------------+------------------------------------+------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                               ; To                                 ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+------------------------------------+------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[5]     ; DP:inst3|8bitRegister:inst13|inst2 ; CLK        ; CLK      ; None                       ; None                       ; 1.247 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; DP:inst3|8bitRegister:inst13|inst3 ; CLK        ; CLK      ; None                       ; None                       ; 1.521 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[3]     ; DP:inst3|8bitRegister:inst13|inst4 ; CLK        ; CLK      ; None                       ; None                       ; 1.988 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[7]     ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                       ; None                       ; 2.038 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; DP:inst3|8bitRegister:inst13|inst5 ; CLK        ; CLK      ; None                       ; None                       ; 2.335 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[6]     ; DP:inst3|8bitRegister:inst13|inst1 ; CLK        ; CLK      ; None                       ; None                       ; 2.402 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[1]     ; DP:inst3|8bitRegister:inst13|inst6 ; CLK        ; CLK      ; None                       ; None                       ; 2.734 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|8bitRegister:inst13|inst6 ; CLK        ; CLK      ; None                       ; None                       ; 2.928 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|8bitRegister:inst13|inst1 ; CLK        ; CLK      ; None                       ; None                       ; 2.943 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|8bitRegister:inst13|inst4 ; CLK        ; CLK      ; None                       ; None                       ; 2.943 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|8bitRegister:inst13|inst7 ; CLK        ; CLK      ; None                       ; None                       ; 2.980 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|8bitRegister:inst13|inst5 ; CLK        ; CLK      ; None                       ; None                       ; 2.998 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|8bitRegister:inst13|inst6 ; CLK        ; CLK      ; None                       ; None                       ; 3.204 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|8bitRegister:inst13|inst1 ; CLK        ; CLK      ; None                       ; None                       ; 3.219 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|8bitRegister:inst13|inst4 ; CLK        ; CLK      ; None                       ; None                       ; 3.219 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|8bitRegister:inst13|inst7 ; CLK        ; CLK      ; None                       ; None                       ; 3.256 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|8bitRegister:inst13|inst6 ; CLK        ; CLK      ; None                       ; None                       ; 3.261 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|8bitRegister:inst13|inst5 ; CLK        ; CLK      ; None                       ; None                       ; 3.274 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|8bitRegister:inst13|inst1 ; CLK        ; CLK      ; None                       ; None                       ; 3.276 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|8bitRegister:inst13|inst4 ; CLK        ; CLK      ; None                       ; None                       ; 3.276 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; DP:inst3|8bitRegister:inst13|inst7 ; CLK        ; CLK      ; None                       ; None                       ; 3.276 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|8bitRegister:inst13|inst7 ; CLK        ; CLK      ; None                       ; None                       ; 3.313 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                       ; None                       ; 3.319 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|8bitRegister:inst13|inst5 ; CLK        ; CLK      ; None                       ; None                       ; 3.331 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|8bitRegister:inst13|inst2 ; CLK        ; CLK      ; None                       ; None                       ; 3.338 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|8bitRegister:inst13|inst6 ; CLK        ; CLK      ; None                       ; None                       ; 3.384 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|8bitRegister:inst13|inst1 ; CLK        ; CLK      ; None                       ; None                       ; 3.399 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|8bitRegister:inst13|inst4 ; CLK        ; CLK      ; None                       ; None                       ; 3.399 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|8bitRegister:inst13|inst7 ; CLK        ; CLK      ; None                       ; None                       ; 3.436 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|8bitRegister:inst13|inst5 ; CLK        ; CLK      ; None                       ; None                       ; 3.454 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                       ; None                       ; 3.595 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|8bitRegister:inst13|inst2 ; CLK        ; CLK      ; None                       ; None                       ; 3.614 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[6]     ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                       ; None                       ; 3.625 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                       ; None                       ; 3.652 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|8bitRegister:inst13|inst2 ; CLK        ; CLK      ; None                       ; None                       ; 3.671 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; DP:inst3|8bitRegister:inst13|inst6 ; CLK        ; CLK      ; None                       ; None                       ; 3.705 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                       ; None                       ; 3.775 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|8bitRegister:inst13|inst2 ; CLK        ; CLK      ; None                       ; None                       ; 3.794 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst47|inst         ; DP:inst3|8bitRegister:inst13|inst3 ; CLK        ; CLK      ; None                       ; None                       ; 3.796 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[5]     ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                       ; None                       ; 4.025 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst44|inst         ; DP:inst3|8bitRegister:inst13|inst3 ; CLK        ; CLK      ; None                       ; None                       ; 4.072 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[3]     ; DP:inst3|8bitRegister:inst13|inst3 ; CLK        ; CLK      ; None                       ; None                       ; 4.122 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst45|inst         ; DP:inst3|8bitRegister:inst13|inst3 ; CLK        ; CLK      ; None                       ; None                       ; 4.129 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; DP:inst3|8bitRegister:inst13|inst5 ; CLK        ; CLK      ; None                       ; None                       ; 4.200 ns                 ;
+; Not operational: Clock Skew > Data Delay ; CU:inst1|Dff_M:inst46|inst         ; DP:inst3|8bitRegister:inst13|inst3 ; CLK        ; CLK      ; None                       ; None                       ; 4.252 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; DP:inst3|8bitRegister:inst13|inst4 ; CLK        ; CLK      ; None                       ; None                       ; 4.320 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; DP:inst3|8bitRegister:inst13|inst3 ; CLK        ; CLK      ; None                       ; None                       ; 4.397 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; DP:inst3|8bitRegister:inst13|inst2 ; CLK        ; CLK      ; None                       ; None                       ; 4.434 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[5]     ; DP:inst3|8bitRegister:inst13|inst1 ; CLK        ; CLK      ; None                       ; None                       ; 4.591 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[3]     ; DP:inst3|8bitRegister:inst13|inst2 ; CLK        ; CLK      ; None                       ; None                       ; 4.637 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; DP:inst3|8bitRegister:inst13|inst2 ; CLK        ; CLK      ; None                       ; None                       ; 4.912 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[1]     ; DP:inst3|8bitRegister:inst13|inst5 ; CLK        ; CLK      ; None                       ; None                       ; 5.111 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                       ; None                       ; 5.171 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[3]     ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                       ; None                       ; 5.374 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; DP:inst3|8bitRegister:inst13|inst4 ; CLK        ; CLK      ; None                       ; None                       ; 5.539 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; DP:inst3|8bitRegister:inst13|inst3 ; CLK        ; CLK      ; None                       ; None                       ; 5.616 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[2]     ; DP:inst3|8bitRegister:inst13|inst  ; CLK        ; CLK      ; None                       ; None                       ; 5.649 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[4]     ; DP:inst3|8bitRegister:inst13|inst1 ; CLK        ; CLK      ; None                       ; None                       ; 5.737 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[3]     ; DP:inst3|8bitRegister:inst13|inst1 ; CLK        ; CLK      ; None                       ; None                       ; 5.940 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|8bitRegister:inst13|inst6 ; DP:inst3|8bitRegister:inst13|inst6 ; CLK        ; CLK      ; None                       ; None                       ; 1.586 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|8bitRegister:inst13|inst1 ; DP:inst3|8bitRegister:inst13|inst1 ; CLK        ; CLK      ; None                       ; None                       ; 1.592 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|8bitRegister:inst13|inst4 ; DP:inst3|8bitRegister:inst13|inst4 ; CLK        ; CLK      ; None                       ; None                       ; 1.597 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|8bitRegister:inst13|inst5 ; DP:inst3|8bitRegister:inst13|inst5 ; CLK        ; CLK      ; None                       ; None                       ; 1.627 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|8bitRegister:inst13|inst3 ; DP:inst3|8bitRegister:inst13|inst3 ; CLK        ; CLK      ; None                       ; None                       ; 1.677 ns                 ;
+; Not operational: Clock Skew > Data Delay ; DP:inst3|SRAM8bitx32:inst|Q[0]     ; DP:inst3|8bitRegister:inst13|inst2 ; CLK        ; CLK      ; None                       ; None                       ; 6.131 ns                 ;
++------------------------------------------+------------------------------------+------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; tsu                                                                                          ;
++-------+--------------+------------+----------+------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From     ; To                                 ; To Clock ;
++-------+--------------+------------+----------+------------------------------------+----------+
+; N/A   ; None         ; 3.537 ns   ; Reset    ; DP:inst3|Register5bit:inst6|PC[4]  ; CLK      ;
+; N/A   ; None         ; 3.537 ns   ; Reset    ; DP:inst3|Register5bit:inst6|PC[2]  ; CLK      ;
+; N/A   ; None         ; 3.537 ns   ; Reset    ; DP:inst3|Register5bit:inst6|PC[3]  ; CLK      ;
+; N/A   ; None         ; 3.537 ns   ; Reset    ; DP:inst3|Register5bit:inst6|PC[0]  ; CLK      ;
+; N/A   ; None         ; 3.122 ns   ; Reset    ; DP:inst3|Register5bit:inst6|PC[1]  ; CLK      ;
+; N/A   ; None         ; 1.701 ns   ; Reset    ; DP:inst3|RegisterIR:inst2|IR1[0]   ; CLK      ;
+; N/A   ; None         ; 1.701 ns   ; Reset    ; DP:inst3|RegisterIR:inst2|IR1[1]   ; CLK      ;
+; N/A   ; None         ; 1.701 ns   ; Reset    ; DP:inst3|RegisterIR:inst2|IR1[2]   ; CLK      ;
+; N/A   ; None         ; 1.701 ns   ; Reset    ; DP:inst3|RegisterIR:inst2|IR2[4]   ; CLK      ;
+; N/A   ; None         ; 1.701 ns   ; Reset    ; DP:inst3|RegisterIR:inst2|IR2[2]   ; CLK      ;
+; N/A   ; None         ; 1.701 ns   ; Reset    ; DP:inst3|RegisterIR:inst2|IR2[3]   ; CLK      ;
+; N/A   ; None         ; 1.701 ns   ; Reset    ; DP:inst3|RegisterIR:inst2|IR2[1]   ; CLK      ;
+; N/A   ; None         ; 1.701 ns   ; Reset    ; DP:inst3|RegisterIR:inst2|IR2[0]   ; CLK      ;
+; N/A   ; None         ; 1.437 ns   ; Enter    ; CU:inst1|Dff_M:inst44|inst         ; CLK      ;
+; N/A   ; None         ; 1.434 ns   ; Enter    ; CU:inst1|Dff_M:inst45|inst         ; CLK      ;
+; N/A   ; None         ; -2.105 ns  ; Input[5] ; DP:inst3|8bitRegister:inst13|inst2 ; CLK      ;
+; N/A   ; None         ; -2.577 ns  ; Input[2] ; DP:inst3|8bitRegister:inst13|inst5 ; CLK      ;
+; N/A   ; None         ; -2.776 ns  ; Input[7] ; DP:inst3|8bitRegister:inst13|inst  ; CLK      ;
+; N/A   ; None         ; -2.834 ns  ; Input[0] ; DP:inst3|8bitRegister:inst13|inst7 ; CLK      ;
+; N/A   ; None         ; -2.940 ns  ; Input[3] ; DP:inst3|8bitRegister:inst13|inst4 ; CLK      ;
+; N/A   ; None         ; -3.130 ns  ; Input[6] ; DP:inst3|8bitRegister:inst13|inst1 ; CLK      ;
+; N/A   ; None         ; -3.137 ns  ; Input[1] ; DP:inst3|8bitRegister:inst13|inst6 ; CLK      ;
+; N/A   ; None         ; -3.173 ns  ; Input[4] ; DP:inst3|8bitRegister:inst13|inst3 ; CLK      ;
++-------+--------------+------------+----------+------------------------------------+----------+
+
+
++-------------------------------------------------------------------------------------------------+
+; tco                                                                                             ;
++-------+--------------+------------+------------------------------------+-----------+------------+
+; Slack ; Required tco ; Actual tco ; From                               ; To        ; From Clock ;
++-------+--------------+------------+------------------------------------+-----------+------------+
+; N/A   ; None         ; 12.385 ns  ; DP:inst3|8bitRegister:inst13|inst2 ; Output[5] ; CLK        ;
+; N/A   ; None         ; 12.112 ns  ; DP:inst3|8bitRegister:inst13|inst1 ; Output[6] ; CLK        ;
+; N/A   ; None         ; 12.065 ns  ; DP:inst3|8bitRegister:inst13|inst4 ; Output[3] ; CLK        ;
+; N/A   ; None         ; 11.792 ns  ; DP:inst3|8bitRegister:inst13|inst6 ; Output[1] ; CLK        ;
+; N/A   ; None         ; 11.780 ns  ; DP:inst3|8bitRegister:inst13|inst5 ; Output[2] ; CLK        ;
+; N/A   ; None         ; 11.607 ns  ; DP:inst3|8bitRegister:inst13|inst3 ; Output[4] ; CLK        ;
+; N/A   ; None         ; 11.599 ns  ; DP:inst3|8bitRegister:inst13|inst  ; Output[7] ; CLK        ;
+; N/A   ; None         ; 11.571 ns  ; DP:inst3|8bitRegister:inst13|inst7 ; Output[0] ; CLK        ;
+; N/A   ; None         ; 6.936 ns   ; CU:inst1|Dff_M:inst47|inst         ; Halt      ; CLK        ;
+; N/A   ; None         ; 6.837 ns   ; CU:inst1|Dff_M:inst46|inst         ; Halt      ; CLK        ;
+; N/A   ; None         ; 6.711 ns   ; CU:inst1|Dff_M:inst45|inst         ; Halt      ; CLK        ;
+; N/A   ; None         ; 6.378 ns   ; CU:inst1|Dff_M:inst44|inst         ; Halt      ; CLK        ;
+; N/A   ; None         ; 5.426 ns   ; DP:inst3|RegisterIR:inst2|IR1[1]   ; IR[1]     ; CLK        ;
+; N/A   ; None         ; 5.385 ns   ; DP:inst3|RegisterIR:inst2|IR1[2]   ; IR[2]     ; CLK        ;
+; N/A   ; None         ; 4.581 ns   ; DP:inst3|RegisterIR:inst2|IR1[0]   ; IR[0]     ; CLK        ;
++-------+--------------+------------+------------------------------------+-----------+------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; th                                                                                                 ;
++---------------+-------------+-----------+----------+------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From     ; To                                 ; To Clock ;
++---------------+-------------+-----------+----------+------------------------------------+----------+
+; N/A           ; None        ; 5.390 ns  ; Input[4] ; DP:inst3|8bitRegister:inst13|inst3 ; CLK      ;
+; N/A           ; None        ; 5.354 ns  ; Input[1] ; DP:inst3|8bitRegister:inst13|inst6 ; CLK      ;
+; N/A           ; None        ; 5.347 ns  ; Input[6] ; DP:inst3|8bitRegister:inst13|inst1 ; CLK      ;
+; N/A           ; None        ; 5.157 ns  ; Input[3] ; DP:inst3|8bitRegister:inst13|inst4 ; CLK      ;
+; N/A           ; None        ; 5.051 ns  ; Input[0] ; DP:inst3|8bitRegister:inst13|inst7 ; CLK      ;
+; N/A           ; None        ; 4.993 ns  ; Input[7] ; DP:inst3|8bitRegister:inst13|inst  ; CLK      ;
+; N/A           ; None        ; 4.794 ns  ; Input[2] ; DP:inst3|8bitRegister:inst13|inst5 ; CLK      ;
+; N/A           ; None        ; 4.322 ns  ; Input[5] ; DP:inst3|8bitRegister:inst13|inst2 ; CLK      ;
+; N/A           ; None        ; -1.066 ns ; Reset    ; DP:inst3|RegisterIR:inst2|IR1[2]   ; CLK      ;
+; N/A           ; None        ; -1.068 ns ; Reset    ; DP:inst3|RegisterIR:inst2|IR1[0]   ; CLK      ;
+; N/A           ; None        ; -1.068 ns ; Reset    ; DP:inst3|RegisterIR:inst2|IR2[2]   ; CLK      ;
+; N/A           ; None        ; -1.068 ns ; Reset    ; DP:inst3|RegisterIR:inst2|IR2[0]   ; CLK      ;
+; N/A           ; None        ; -1.072 ns ; Reset    ; DP:inst3|RegisterIR:inst2|IR2[1]   ; CLK      ;
+; N/A           ; None        ; -1.073 ns ; Reset    ; DP:inst3|RegisterIR:inst2|IR2[3]   ; CLK      ;
+; N/A           ; None        ; -1.074 ns ; Reset    ; DP:inst3|RegisterIR:inst2|IR2[4]   ; CLK      ;
+; N/A           ; None        ; -1.075 ns ; Reset    ; DP:inst3|RegisterIR:inst2|IR1[1]   ; CLK      ;
+; N/A           ; None        ; -1.088 ns ; Enter    ; CU:inst1|Dff_M:inst45|inst         ; CLK      ;
+; N/A           ; None        ; -1.091 ns ; Enter    ; CU:inst1|Dff_M:inst44|inst         ; CLK      ;
+; N/A           ; None        ; -1.777 ns ; Reset    ; DP:inst3|Register5bit:inst6|PC[4]  ; CLK      ;
+; N/A           ; None        ; -1.777 ns ; Reset    ; DP:inst3|Register5bit:inst6|PC[2]  ; CLK      ;
+; N/A           ; None        ; -1.777 ns ; Reset    ; DP:inst3|Register5bit:inst6|PC[3]  ; CLK      ;
+; N/A           ; None        ; -1.777 ns ; Reset    ; DP:inst3|Register5bit:inst6|PC[0]  ; CLK      ;
+; N/A           ; None        ; -2.127 ns ; Reset    ; DP:inst3|Register5bit:inst6|PC[1]  ; CLK      ;
++---------------+-------------+-----------+----------+------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Mon May 05 10:10:03 2025
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off Lab10 -c Lab10
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLK" is an undefined clock
+Warning: Found 6 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected gated clock "CU:inst1|inst39~0" as buffer
+    Info: Detected gated clock "DP:inst3|8bitRegister:inst13|inst8" as buffer
+    Info: Detected ripple clock "CU:inst1|Dff_M:inst44|inst" as buffer
+    Info: Detected ripple clock "CU:inst1|Dff_M:inst45|inst" as buffer
+    Info: Detected ripple clock "CU:inst1|Dff_M:inst46|inst" as buffer
+    Info: Detected ripple clock "CU:inst1|Dff_M:inst47|inst" as buffer
+Info: Clock "CLK" has Internal fmax of 83.77 MHz between source register "DP:inst3|8bitRegister:inst13|inst1" and destination register "DP:inst3|Register5bit:inst6|PC[4]" (period= 11.938 ns)
+    Info: + Longest register to register delay is 5.250 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X5_Y7_N9; Fanout = 36; REG Node = 'DP:inst3|8bitRegister:inst13|inst1'
+        Info: 2: + IC(1.285 ns) + CELL(0.571 ns) = 1.856 ns; Loc. = LC_X5_Y7_N2; Fanout = 1; COMB Node = 'DP:inst3|Register5bit:inst6|PC[0]~2'
+        Info: 3: + IC(0.191 ns) + CELL(0.125 ns) = 2.172 ns; Loc. = LC_X5_Y7_N3; Fanout = 1; COMB Node = 'DP:inst3|Register5bit:inst6|PC[0]~3'
+        Info: 4: + IC(1.071 ns) + CELL(0.125 ns) = 3.368 ns; Loc. = LC_X2_Y7_N1; Fanout = 5; COMB Node = 'DP:inst3|Register5bit:inst6|PC[0]~4'
+        Info: 5: + IC(1.105 ns) + CELL(0.777 ns) = 5.250 ns; Loc. = LC_X2_Y8_N2; Fanout = 2; REG Node = 'DP:inst3|Register5bit:inst6|PC[4]'
+        Info: Total cell delay = 1.598 ns ( 30.44 % )
+        Info: Total interconnect delay = 3.652 ns ( 69.56 % )
+    Info: - Smallest clock skew is -6.245 ns
+        Info: + Shortest clock path from clock "CLK" to destination register is 2.388 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.727 ns) = 0.727 ns; Loc. = PIN_18; Fanout = 282; CLK Node = 'CLK'
+            Info: 2: + IC(1.087 ns) + CELL(0.574 ns) = 2.388 ns; Loc. = LC_X2_Y8_N2; Fanout = 2; REG Node = 'DP:inst3|Register5bit:inst6|PC[4]'
+            Info: Total cell delay = 1.301 ns ( 54.48 % )
+            Info: Total interconnect delay = 1.087 ns ( 45.52 % )
+        Info: - Longest clock path from clock "CLK" to source register is 8.633 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.727 ns) = 0.727 ns; Loc. = PIN_18; Fanout = 282; CLK Node = 'CLK'
+            Info: 2: + IC(1.087 ns) + CELL(0.809 ns) = 2.623 ns; Loc. = LC_X3_Y7_N9; Fanout = 13; REG Node = 'CU:inst1|Dff_M:inst45|inst'
+            Info: 3: + IC(1.239 ns) + CELL(0.462 ns) = 4.324 ns; Loc. = LC_X2_Y6_N3; Fanout = 1; COMB Node = 'CU:inst1|inst39~0'
+            Info: 4: + IC(0.191 ns) + CELL(0.125 ns) = 4.640 ns; Loc. = LC_X2_Y6_N4; Fanout = 8; COMB Node = 'DP:inst3|8bitRegister:inst13|inst8'
+            Info: 5: + IC(3.419 ns) + CELL(0.574 ns) = 8.633 ns; Loc. = LC_X5_Y7_N9; Fanout = 36; REG Node = 'DP:inst3|8bitRegister:inst13|inst1'
+            Info: Total cell delay = 2.697 ns ( 31.24 % )
+            Info: Total interconnect delay = 5.936 ns ( 68.76 % )
+    Info: + Micro clock to output delay of source is 0.235 ns
+    Info: + Micro setup delay of destination is 0.208 ns
+Warning: Circuit may not operate. Detected 65 non-operational path(s) clocked by clock "CLK" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "DP:inst3|SRAM8bitx32:inst|Q[5]" and destination pin or register "DP:inst3|8bitRegister:inst13|inst2" for clock "CLK" (Hold time is 4.901 ns)
+    Info: + Largest clock skew is 6.245 ns
+        Info: + Longest clock path from clock "CLK" to destination register is 8.633 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.727 ns) = 0.727 ns; Loc. = PIN_18; Fanout = 282; CLK Node = 'CLK'
+            Info: 2: + IC(1.087 ns) + CELL(0.809 ns) = 2.623 ns; Loc. = LC_X3_Y7_N9; Fanout = 13; REG Node = 'CU:inst1|Dff_M:inst45|inst'
+            Info: 3: + IC(1.239 ns) + CELL(0.462 ns) = 4.324 ns; Loc. = LC_X2_Y6_N3; Fanout = 1; COMB Node = 'CU:inst1|inst39~0'
+            Info: 4: + IC(0.191 ns) + CELL(0.125 ns) = 4.640 ns; Loc. = LC_X2_Y6_N4; Fanout = 8; COMB Node = 'DP:inst3|8bitRegister:inst13|inst8'
+            Info: 5: + IC(3.419 ns) + CELL(0.574 ns) = 8.633 ns; Loc. = LC_X8_Y7_N8; Fanout = 36; REG Node = 'DP:inst3|8bitRegister:inst13|inst2'
+            Info: Total cell delay = 2.697 ns ( 31.24 % )
+            Info: Total interconnect delay = 5.936 ns ( 68.76 % )
+        Info: - Shortest clock path from clock "CLK" to source register is 2.388 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.727 ns) = 0.727 ns; Loc. = PIN_18; Fanout = 282; CLK Node = 'CLK'
+            Info: 2: + IC(1.087 ns) + CELL(0.574 ns) = 2.388 ns; Loc. = LC_X8_Y7_N2; Fanout = 4; REG Node = 'DP:inst3|SRAM8bitx32:inst|Q[5]'
+            Info: Total cell delay = 1.301 ns ( 54.48 % )
+            Info: Total interconnect delay = 1.087 ns ( 45.52 % )
+    Info: - Micro clock to output delay of source is 0.235 ns
+    Info: - Shortest register to register delay is 1.247 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X8_Y7_N2; Fanout = 4; REG Node = 'DP:inst3|SRAM8bitx32:inst|Q[5]'
+        Info: 2: + IC(0.584 ns) + CELL(0.663 ns) = 1.247 ns; Loc. = LC_X8_Y7_N8; Fanout = 36; REG Node = 'DP:inst3|8bitRegister:inst13|inst2'
+        Info: Total cell delay = 0.663 ns ( 53.17 % )
+        Info: Total interconnect delay = 0.584 ns ( 46.83 % )
+    Info: + Micro hold delay of destination is 0.138 ns
+Info: tsu for register "DP:inst3|Register5bit:inst6|PC[4]" (data pin = "Reset", clock pin = "CLK") is 3.537 ns
+    Info: + Longest pin to register delay is 5.717 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.727 ns) = 0.727 ns; Loc. = PIN_20; Fanout = 26; PIN Node = 'Reset'
+        Info: 2: + IC(1.502 ns) + CELL(0.462 ns) = 2.691 ns; Loc. = LC_X1_Y7_N1; Fanout = 9; COMB Node = 'DP:inst3|Register5bit:inst6|PC[0]~0'
+        Info: 3: + IC(0.825 ns) + CELL(0.319 ns) = 3.835 ns; Loc. = LC_X2_Y7_N1; Fanout = 5; COMB Node = 'DP:inst3|Register5bit:inst6|PC[0]~4'
+        Info: 4: + IC(1.105 ns) + CELL(0.777 ns) = 5.717 ns; Loc. = LC_X2_Y8_N2; Fanout = 2; REG Node = 'DP:inst3|Register5bit:inst6|PC[4]'
+        Info: Total cell delay = 2.285 ns ( 39.97 % )
+        Info: Total interconnect delay = 3.432 ns ( 60.03 % )
+    Info: + Micro setup delay of destination is 0.208 ns
+    Info: - Shortest clock path from clock "CLK" to destination register is 2.388 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.727 ns) = 0.727 ns; Loc. = PIN_18; Fanout = 282; CLK Node = 'CLK'
+        Info: 2: + IC(1.087 ns) + CELL(0.574 ns) = 2.388 ns; Loc. = LC_X2_Y8_N2; Fanout = 2; REG Node = 'DP:inst3|Register5bit:inst6|PC[4]'
+        Info: Total cell delay = 1.301 ns ( 54.48 % )
+        Info: Total interconnect delay = 1.087 ns ( 45.52 % )
+Info: tco from clock "CLK" to destination pin "Output[5]" through register "DP:inst3|8bitRegister:inst13|inst2" is 12.385 ns
+    Info: + Longest clock path from clock "CLK" to source register is 8.633 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.727 ns) = 0.727 ns; Loc. = PIN_18; Fanout = 282; CLK Node = 'CLK'
+        Info: 2: + IC(1.087 ns) + CELL(0.809 ns) = 2.623 ns; Loc. = LC_X3_Y7_N9; Fanout = 13; REG Node = 'CU:inst1|Dff_M:inst45|inst'
+        Info: 3: + IC(1.239 ns) + CELL(0.462 ns) = 4.324 ns; Loc. = LC_X2_Y6_N3; Fanout = 1; COMB Node = 'CU:inst1|inst39~0'
+        Info: 4: + IC(0.191 ns) + CELL(0.125 ns) = 4.640 ns; Loc. = LC_X2_Y6_N4; Fanout = 8; COMB Node = 'DP:inst3|8bitRegister:inst13|inst8'
+        Info: 5: + IC(3.419 ns) + CELL(0.574 ns) = 8.633 ns; Loc. = LC_X8_Y7_N8; Fanout = 36; REG Node = 'DP:inst3|8bitRegister:inst13|inst2'
+        Info: Total cell delay = 2.697 ns ( 31.24 % )
+        Info: Total interconnect delay = 5.936 ns ( 68.76 % )
+    Info: + Micro clock to output delay of source is 0.235 ns
+    Info: + Longest register to pin delay is 3.517 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X8_Y7_N8; Fanout = 36; REG Node = 'DP:inst3|8bitRegister:inst13|inst2'
+        Info: 2: + IC(2.063 ns) + CELL(1.454 ns) = 3.517 ns; Loc. = PIN_101; Fanout = 0; PIN Node = 'Output[5]'
+        Info: Total cell delay = 1.454 ns ( 41.34 % )
+        Info: Total interconnect delay = 2.063 ns ( 58.66 % )
+Info: th for register "DP:inst3|8bitRegister:inst13|inst3" (data pin = "Input[4]", clock pin = "CLK") is 5.390 ns
+    Info: + Longest clock path from clock "CLK" to destination register is 8.633 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.727 ns) = 0.727 ns; Loc. = PIN_18; Fanout = 282; CLK Node = 'CLK'
+        Info: 2: + IC(1.087 ns) + CELL(0.809 ns) = 2.623 ns; Loc. = LC_X3_Y7_N9; Fanout = 13; REG Node = 'CU:inst1|Dff_M:inst45|inst'
+        Info: 3: + IC(1.239 ns) + CELL(0.462 ns) = 4.324 ns; Loc. = LC_X2_Y6_N3; Fanout = 1; COMB Node = 'CU:inst1|inst39~0'
+        Info: 4: + IC(0.191 ns) + CELL(0.125 ns) = 4.640 ns; Loc. = LC_X2_Y6_N4; Fanout = 8; COMB Node = 'DP:inst3|8bitRegister:inst13|inst8'
+        Info: 5: + IC(3.419 ns) + CELL(0.574 ns) = 8.633 ns; Loc. = LC_X5_Y9_N3; Fanout = 36; REG Node = 'DP:inst3|8bitRegister:inst13|inst3'
+        Info: Total cell delay = 2.697 ns ( 31.24 % )
+        Info: Total interconnect delay = 5.936 ns ( 68.76 % )
+    Info: + Micro hold delay of destination is 0.138 ns
+    Info: - Shortest pin to register delay is 3.381 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.708 ns) = 0.708 ns; Loc. = PIN_139; Fanout = 1; PIN Node = 'Input[4]'
+        Info: 2: + IC(2.498 ns) + CELL(0.175 ns) = 3.381 ns; Loc. = LC_X5_Y9_N3; Fanout = 36; REG Node = 'DP:inst3|8bitRegister:inst13|inst3'
+        Info: Total cell delay = 0.883 ns ( 26.12 % )
+        Info: Total interconnect delay = 2.498 ns ( 73.88 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 187 megabytes
+    Info: Processing ended: Mon May 05 10:10:03 2025
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
+
+

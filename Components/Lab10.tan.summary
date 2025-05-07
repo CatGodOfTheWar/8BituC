@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 3.537 ns
+From           : Reset
+To             : DP:inst3|Register5bit:inst6|PC[0]
+From Clock     : --
+To Clock       : CLK
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 12.385 ns
+From           : DP:inst3|8bitRegister:inst13|inst2
+To             : Output[5]
+From Clock     : CLK
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.390 ns
+From           : Input[4]
+To             : DP:inst3|8bitRegister:inst13|inst3
+From Clock     : --
+To Clock       : CLK
+Failed Paths   : 0
+
+Type           : Clock Setup: 'CLK'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 83.77 MHz ( period = 11.938 ns )
+From           : DP:inst3|8bitRegister:inst13|inst1
+To             : DP:inst3|Register5bit:inst6|PC[0]
+From Clock     : CLK
+To Clock       : CLK
+Failed Paths   : 0
+
+Type           : Clock Hold: 'CLK'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : DP:inst3|SRAM8bitx32:inst|Q[5]
+To             : DP:inst3|8bitRegister:inst13|inst2
+From Clock     : CLK
+To Clock       : CLK
+Failed Paths   : 65
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 65
+
+--------------------------------------------------------------------------------------
+
